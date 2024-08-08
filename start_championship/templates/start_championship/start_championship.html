@@ -1,0 +1,26 @@
+{% extends 'register_team/base.html' %}
+
+{% block title %}Start Championship{% endblock %}
+
+{% block content %}
+<h1>Championship Created Successfully!</h1>
+<p>Select a match to manage:</p>
+
+<form method="post" action="{% url 'choose_match' championship.id %}">
+    {% csrf_token %}
+    <ul>
+        {% for match in matches %}
+            <li>
+                {{ match.team_a }} vs {{ match.team_b }} - 
+                <button type="submit" name="match_id" value="{{ match.id }}">Choose</button>
+            </li>
+        {% empty %}
+            <li>No matches available</li>
+        {% endfor %}
+    </ul>
+</form>
+
+<ul style="list-style-type: none; padding: 0; margin: 0;">
+    <li><a href="{% url 'register_team' %}">Want to register another 2 teams?</a></li>
+</ul>
+{% endblock %}

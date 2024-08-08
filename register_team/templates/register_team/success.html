@@ -1,0 +1,11 @@
+{% extends 'register_team/base.html' %}
+
+{% block content %}
+<h2>Registration Successful!</h2>
+<p>Your team has been successfully registered.</p>
+<p>What would you like to do next?</p>
+<ul>
+    <li><a href="{% url 'register_team' %}">Register another team</a></li>
+    <li><a href="{% url 'start_championship' %}">Start Championship (this will not work if there aren't at least 8 teams)</a></li>
+</ul>
+{% endblock %}

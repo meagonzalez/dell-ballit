@@ -1,0 +1,15 @@
+{% extends 'register_team/base.html' %}
+
+{% block title %}Register Team{% endblock %}
+
+{% block content %}
+<h2>Register a New Team</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+<ul style="list-style-type: none; padding: 0; margin: 0;">
+    <li><a href="{% url 'start_championship' %}">Start Championship (this will not work if there aren't at least 8 teams)</a></li>
+</ul>
+{% endblock %}

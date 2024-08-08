@@ -1,0 +1,23 @@
+{% extends 'register_team/base.html' %}
+
+{% block title %}Final Results{% endblock %}
+
+{% block content %}
+<h1>Final Results</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Total Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for team in teams %}
+        <tr>
+            <td>{{ team.name }}</td>
+            <td>{{ team.total_points }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

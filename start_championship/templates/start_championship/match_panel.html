@@ -1,0 +1,16 @@
+{% extends 'register_team/base.html' %}
+
+{% block title %}Match Panel{% endblock %}
+
+{% block content %}
+<h1>{{ team_a.name }} v.s {{ team_b.name }}</h1>
+<p>Score: {{ score_a }} - {{ score_b }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" name="action" value="blot_a">Blot for {{ team_a.name }}</button>
+    <button type="submit" name="action" value="blot_b">Blot for {{ team_b.name }}</button>
+    <button type="submit" name="action" value="plif_a">Plif for {{ team_a.name }}</button>
+    <button type="submit" name="action" value="plif_b">Plif for {{ team_b.name }}</button>
+    <button type="submit" name="action" value="end_match">End Match</button>
+</form>
+{% endblock %}
